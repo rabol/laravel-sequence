@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "semantic-release": "^24.1.0"
+  },
+  "type": "module"
+}
