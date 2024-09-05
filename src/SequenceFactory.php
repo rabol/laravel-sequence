@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace NGT\Laravel\Sequence;
+namespace Guava\Sequence;
 
 use DateTimeInterface;
 use InvalidArgumentException;
@@ -11,14 +11,14 @@ class SequenceFactory
     /**
      * The instance of sequence query helper.
      *
-     * @var  \NGT\Laravel\Sequence\SequenceQuery
+     * @var  \Guava\Sequence\SequenceQuery
      */
     protected $query;
 
     /**
      * The sequence factory constructor.
      *
-     * @param  \NGT\Laravel\Sequence\SequenceQuery  $query
+     * @param  \Guava\Sequence\SequenceQuery  $query
      */
     public function __construct(SequenceQuery $query)
     {
@@ -30,7 +30,7 @@ class SequenceFactory
      *
      * @param   string             $type
      * @param   DateTimeInterface  $date
-     * @return  \NGT\Laravel\Sequence\Sequence
+     * @return  \Guava\Sequence\Sequence
      */
     public function create(string $type, DateTimeInterface $date): Sequence
     {

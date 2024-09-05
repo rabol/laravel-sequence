@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace NGT\Laravel\Sequence\Models;
+namespace Guava\Sequence\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use NGT\Database\Factories\SequencePeriodFactory;
+use Guava\Sequence\Database\Factories\SequencePeriodFactory;
 
 /**
  * @property  string  $date

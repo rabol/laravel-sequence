@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace NGT\Laravel\Sequence;
+namespace Guava\Sequence;
 
 use DateTimeInterface;
-use NGT\Laravel\Sequence\Models\SequencePeriod;
-use NGT\Laravel\Sequence\Models\SequenceRule;
+use Guava\Sequence\Models\SequencePeriod;
+use Guava\Sequence\Models\SequenceRule;
 
 class SequenceQuery
 {
     /**
      * Find sequence rule for given type.
      *
-     * @param   string  $type
-     * @return  \NGT\Laravel\Sequence\Models\SequenceRule|null
+     * @param string $type
+     * @return  SequenceRule|null
      */
     public function findSequenceRule(string $type): ?SequenceRule
     {
@@ -25,9 +25,9 @@ class SequenceQuery
     /**
      * Find sequence period for given sequence rule and date.
      *
-     * @param   \NGT\Laravel\Sequence\Models\SequenceRule         $sequenceRule
-     * @param   DateTimeInterface                                 $date
-     * @return  \NGT\Laravel\Sequence\Models\SequencePeriod|null
+     * @param SequenceRule $sequenceRule
+     * @param DateTimeInterface $date
+     * @return  SequencePeriod|null
      */
     public function findSequencePeriod(SequenceRule $sequenceRule, DateTimeInterface $date): ?SequencePeriod
     {
@@ -47,14 +47,14 @@ class SequenceQuery
     /**
      * Create new sequence period for given sequence rule and date.
      *
-     * @param   \NGT\Laravel\Sequence\Models\SequenceRule    $sequenceRule
-     * @param   DateTimeInterface                            $date
-     * @return  \NGT\Laravel\Sequence\Models\SequencePeriod
+     * @param SequenceRule $sequenceRule
+     * @param DateTimeInterface $date
+     * @return  SequencePeriod
      */
     public function createSequencePeriod(SequenceRule $sequenceRule, DateTimeInterface $date): SequencePeriod
     {
         return $sequenceRule->periods()->create([
-            'date'           => $date->format('Y-m-d'),
+            'date' => $date->format('Y-m-d'),
             'ordinal_number' => 1,
         ]);
     }

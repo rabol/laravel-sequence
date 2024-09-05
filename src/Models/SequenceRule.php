@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace NGT\Laravel\Sequence\Models;
+namespace Guava\Sequence\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use NGT\Database\Factories\SequenceRuleFactory;
-use NGT\Laravel\Sequence\Enums\ResetFrequency;
+use Guava\Sequence\Database\Factories\SequenceRuleFactory;
+use Guava\Sequence\Enums\ResetFrequency;
 
 /**
- * @property  string  $pattern
- * @property  string  $reset_frequency
+ * @property  string $pattern
+ * @property  string $reset_frequency
  */
 class SequenceRule extends Model
 {
@@ -55,10 +55,10 @@ class SequenceRule extends Model
      */
     public function needsYearlyReset(): bool
     {
-        return ResetFrequency::fromValue($this->reset_frequency)->in([
-            ResetFrequency::YEARLY,
-            ResetFrequency::MONTHLY,
-            ResetFrequency::DAILY,
+        return in_array(ResetFrequency::tryFrom($this->reset_frequency), [
+            ResetFrequency::Yearly,
+            ResetFrequency::Monthly,
+            ResetFrequency::Daily,
         ]);
     }
 
@@ -69,9 +69,9 @@ class SequenceRule extends Model
      */
     public function needsMonthlyReset(): bool
     {
-        return ResetFrequency::fromValue($this->reset_frequency)->in([
-            ResetFrequency::MONTHLY,
-            ResetFrequency::DAILY,
+        return in_array(ResetFrequency::tryFrom($this->reset_frequency), [
+            ResetFrequency::Monthly,
+            ResetFrequency::Daily,
         ]);
     }
 
@@ -82,6 +82,8 @@ class SequenceRule extends Model
      */
     public function needsDailyReset(): bool
     {
-        return ResetFrequency::fromValue($this->reset_frequency)->is(ResetFrequency::DAILY);
+        return in_array(ResetFrequency::tryFrom($this->reset_frequency), [
+            ResetFrequency::Daily
+        ]);
     }
 }

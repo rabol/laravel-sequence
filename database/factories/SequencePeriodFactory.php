@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace NGT\Database\Factories;
+namespace Guava\Sequence\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use NGT\Laravel\Sequence\Models\SequencePeriod;
+use Guava\Sequence\Models\SequencePeriod;
 
 class SequencePeriodFactory extends Factory
 {

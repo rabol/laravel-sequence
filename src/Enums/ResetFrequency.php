@@ -1,13 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace NGT\Laravel\Sequence\Enums;
+namespace Guava\Sequence\Enums;
 
-use BenSampo\Enum\Enum;
 
-final class ResetFrequency extends Enum
+enum ResetFrequency: string
 {
-    public const YEARLY  = 'yearly';
-    public const MONTHLY = 'monthly';
-    public const DAILY   = 'daily';
+    case Yearly = 'yearly';
+    case Monthly = 'monthly';
+    case Daily = 'daily';
 }

@@ -1,29 +1,30 @@
 {
-    "name": "nextgen-tech/laravel-sequence",
+    "name": "guava/laravel-sequence",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Krzysztof Grabania",
             "email": "info@nextgen-tech.pl"
+        },
+        {
+            "name": "Lukas Frey",
+            "email": "lukas.frey@guava.cz"
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
-        "laravel/framework": "^8.0",
-        "bensampo/laravel-enum": "^3.3"
+        "php": "^8.1",
+        "laravel/framework": "^10.0|^11.0"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12.87",
-        "nunomaduro/larastan": "^0.7.6",
-        "orchestra/testbench": "^6.18",
-        "psy/psysh": "^0.10.8",
+        "nunomaduro/larastan": "^2.0",
+        "orchestra/testbench": "^8.0|^9.0",
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
-            "NGT\\Laravel\\Sequence\\": "src/",
-            "NGT\\Database\\Factories\\": "database/factories/"
+            "Guava\\Sequence\\": "src/",
+            "Guava\\Sequence\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
@@ -34,7 +35,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "NGT\\Laravel\\Sequence\\SequenceServiceProvider"
+                "Guava\\Sequence\\SequenceServiceProvider"
             ]
         }
     }

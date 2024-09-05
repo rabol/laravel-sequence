@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace NGT\Database\Factories;
+namespace Guava\Sequence\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use InvalidArgumentException;
-use NGT\Laravel\Sequence\Enums\ResetFrequency;
-use NGT\Laravel\Sequence\Models\SequenceRule;
+use Guava\Sequence\Enums\ResetFrequency;
+use Guava\Sequence\Models\SequenceRule;
 
 class SequenceRuleFactory extends Factory
 {
