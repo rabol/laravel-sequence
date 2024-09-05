@@ -1,17 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Guava\Sequence\Models;
 
+use Guava\Sequence\Database\Factories\SequenceRuleFactory;
+use Guava\Sequence\Enums\ResetFrequency;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Guava\Sequence\Database\Factories\SequenceRuleFactory;
-use Guava\Sequence\Enums\ResetFrequency;
 
 /**
- * @property  string $pattern
- * @property  string $reset_frequency
+ * @property string $pattern
+ * @property string $reset_frequency
  */
 class SequenceRule extends Model
 {
@@ -20,7 +21,7 @@ class SequenceRule extends Model
     public $table = 'sequence_rules';
 
     /**
-     * @var  array<string>
+     * @var array<string>
      */
     protected $fillable = [
         'type',
@@ -40,8 +41,6 @@ class SequenceRule extends Model
 
     /**
      * Get the related periods.
-     *
-     * @return  \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function periods(): HasMany
     {
@@ -50,8 +49,6 @@ class SequenceRule extends Model
 
     /**
      * Decide whether ordinal number needs to be reset yearly.
-     *
-     * @return  bool
      */
     public function needsYearlyReset(): bool
     {
@@ -64,8 +61,6 @@ class SequenceRule extends Model
 
     /**
      * Decide whether ordinal number needs to be reset monthly.
-     *
-     * @return  bool
      */
     public function needsMonthlyReset(): bool
     {
@@ -77,13 +72,11 @@ class SequenceRule extends Model
 
     /**
      * Decide whether ordinal number needs to be reset daily.
-     *
-     * @return  bool
      */
     public function needsDailyReset(): bool
     {
         return in_array(ResetFrequency::tryFrom($this->reset_frequency), [
-            ResetFrequency::Daily
+            ResetFrequency::Daily,
         ]);
     }
 }

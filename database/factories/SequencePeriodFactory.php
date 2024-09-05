@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Guava\Sequence\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Guava\Sequence\Models\SequencePeriod;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SequencePeriodFactory extends Factory
 {
@@ -23,7 +24,7 @@ class SequencePeriodFactory extends Factory
     public function definition()
     {
         return [
-            'date'           => $this->faker->dateTimeBetween('-1 year')->format('Y-m-d'),
+            'date' => $this->faker->dateTimeBetween('-1 year')->format('Y-m-d'),
             'ordinal_number' => $this->faker->numberBetween(1, 100),
         ];
     }

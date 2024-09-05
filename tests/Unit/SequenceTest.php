@@ -1,10 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Unit;
 
-use DateTimeImmutable;
-use Exception;
 use NGT\Laravel\Sequence\Models\SequencePeriod;
 use NGT\Laravel\Sequence\Sequence;
 
@@ -45,7 +44,7 @@ class SequenceTest extends \Tests\TestCase
     private function makeSequence(int $ordinalNumber, string $pattern, string $date): Sequence
     {
         $period = $this->makePeriod($ordinalNumber);
-        $date   = $this->makeDate($date);
+        $date = $this->makeDate($date);
 
         return new Sequence($period, $pattern, $date);
     }
@@ -53,7 +52,7 @@ class SequenceTest extends \Tests\TestCase
     private function makePeriod(int $ordinalNumber): SequencePeriod
     {
         return SequencePeriod::make([
-            'date'           => '2021-01-01',
+            'date' => '2021-01-01',
             'ordinal_number' => $ordinalNumber,
         ]);
     }

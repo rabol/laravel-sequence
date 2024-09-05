@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Guava\Sequence\Enums;
-
 
 enum ResetFrequency: string
 {

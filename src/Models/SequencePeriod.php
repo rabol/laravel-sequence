@@ -1,15 +1,16 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Guava\Sequence\Models;
 
+use Guava\Sequence\Database\Factories\SequencePeriodFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Guava\Sequence\Database\Factories\SequencePeriodFactory;
 
 /**
- * @property  string  $date
- * @property  int     $ordinal_number
+ * @property string $date
+ * @property int $ordinal_number
  */
 class SequencePeriod extends Model
 {
@@ -28,7 +29,7 @@ class SequencePeriod extends Model
     }
 
     /**
-     * @var  array<string>
+     * @var array<string>
      */
     protected $fillable = [
         'date',
@@ -36,7 +37,7 @@ class SequencePeriod extends Model
     ];
 
     /**
-     * @var  array<string, string>
+     * @var array<string, string>
      */
     protected $casts = [
         'ordinal_number' => 'integer',

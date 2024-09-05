@@ -1,8 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Guava\Sequence;
-
 
 use Illuminate\Support\ServiceProvider;
 
@@ -12,7 +12,6 @@ class SequenceServiceProvider extends ServiceProvider
      * Bootstrap services.
      *
      * @codeCoverageIgnore
-     * @return void
      */
     public function boot(): void
     {
