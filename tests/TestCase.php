@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests;
@@ -13,7 +14,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
      * Get package providers.
      *
      * @param  \Illuminate\Foundation\Application  $app
-     *
      * @return array
      */
     protected function getPackageProviders($app)
@@ -31,6 +31,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
             return $date;
         }
 
-        throw new Exception();
+        throw new Exception;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Guava\Sequence;
@@ -11,14 +12,12 @@ class SequenceFactory
     /**
      * The instance of sequence query helper.
      *
-     * @var  \Guava\Sequence\SequenceQuery
+     * @var \Guava\Sequence\SequenceQuery
      */
     protected $query;
 
     /**
      * The sequence factory constructor.
-     *
-     * @param  \Guava\Sequence\SequenceQuery  $query
      */
     public function __construct(SequenceQuery $query)
     {
@@ -27,10 +26,6 @@ class SequenceFactory
 
     /**
      * Create instance of sequence.
-     *
-     * @param   string             $type
-     * @param   DateTimeInterface  $date
-     * @return  \Guava\Sequence\Sequence
      */
     public function create(string $type, DateTimeInterface $date): Sequence
     {

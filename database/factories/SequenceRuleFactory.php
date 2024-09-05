@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Guava\Sequence\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use InvalidArgumentException;
 use Guava\Sequence\Enums\ResetFrequency;
 use Guava\Sequence\Models\SequenceRule;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use InvalidArgumentException;
 
 class SequenceRuleFactory extends Factory
 {
@@ -25,9 +26,9 @@ class SequenceRuleFactory extends Factory
     public function definition()
     {
         return [
-            'type'            => $this->faker->unique()->word(),
+            'type' => $this->faker->unique()->word(),
             'reset_frequency' => $this->faker->randomElement(ResetFrequency::getValues()),
-            'pattern'         => function (array $attributes) {
+            'pattern' => function (array $attributes) {
                 return $this->faker->randomElement(
                     $this->examplePatterns($attributes['reset_frequency'])
                 );
@@ -38,8 +39,7 @@ class SequenceRuleFactory extends Factory
     /**
      * Get example patterns for given reset frequency
      *
-     * @param   string  $resetFrequency
-     * @return  array<string>
+     * @return array<string>
      */
     private function examplePatterns(string $resetFrequency): array
     {
@@ -59,8 +59,6 @@ class SequenceRuleFactory extends Factory
 
     /**
      * Indicate that sequence should resets daily.
-     *
-     * @return  \Illuminate\Database\Eloquent\Factories\Factory
      */
     public function resetsDaily(): Factory
     {
@@ -73,8 +71,6 @@ class SequenceRuleFactory extends Factory
 
     /**
      * Indicate that sequence should resets monthly.
-     *
-     * @return  \Illuminate\Database\Eloquent\Factories\Factory
      */
     public function resetsMonthly(): Factory
     {
@@ -87,8 +83,6 @@ class SequenceRuleFactory extends Factory
 
     /**
      * Indicate that sequence should resets yearly.
-     *
-     * @return  \Illuminate\Database\Eloquent\Factories\Factory
      */
     public function resetsYearly(): Factory
     {
