@@ -19,9 +19,9 @@ composer require nextgen-tech/laravel-sequence
 
 ```php
 use Carbon\Carbon;
-use NGT\Laravel\Sequence\Enums\ResetFrequency;
-use NGT\Laravel\Sequence\Models\SequenceRule;
-use NGT\Laravel\Sequence\SequenceFactory;
+use Guava\Sequence\Enums\ResetFrequency;
+use Guava\Sequence\Models\SequenceRule;
+use Guava\Sequence\SequenceFactory;
 
 /**
  * Create new sequence rule. It needs to be done only once.
@@ -60,7 +60,7 @@ $sequence->increment();
 
 ## Reset Frequencies
 
-Sequences supports three most commonly used reset frequencies. `\NGT\Laravel\Sequence\Enums\ResetFrequency` class should be used when creating new sequence rule.
+Sequences supports three most commonly used reset frequencies. `\Guava\Sequence\Enums\ResetFrequency` class should be used when creating new sequence rule.
 
 * `ResetFrequency::YEARLY` - resets ordinal number at the beginning of new year
 * `ResetFrequency::MONTHLY` - resets ordinal number at the beginning of new month
@@ -77,3 +77,8 @@ Sequences supports three most commonly used reset frequencies. `\NGT\Laravel\Seq
 | `{day_short}`   | day of passed date without leading zero   | 5       |
 | `{month_short}` | month of passed date without leading zero | 3       |
 | `{year_short}`  | short year of passed date                 | 21      |
+
+## Credits
+This package is a fork of [nextgen-tech/laravel-sequence](https://github.com/nextgen-tech/laravel-sequence)
+
+- Credits to the original author [Krzysztof Grabania](https://github.com/Dartui)
