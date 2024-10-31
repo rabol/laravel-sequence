@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use InvalidArgumentException;
 use Guava\Sequence\Enums\ResetFrequency;
 use Guava\Sequence\Models\SequenceRule;
 use Guava\Sequence\Sequence;
 use Guava\Sequence\SequenceFactory;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use InvalidArgumentException;
 
 class SequenceFactoryTest extends \Tests\TestCase
 {
