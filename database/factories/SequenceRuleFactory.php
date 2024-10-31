@@ -27,7 +27,7 @@ class SequenceRuleFactory extends Factory
     {
         return [
             'type' => $this->faker->unique()->word(),
-            'reset_frequency' => $this->faker->randomElement(ResetFrequency::getValues()),
+            'reset_frequency' => $this->faker->randomElement(ResetFrequency::cases()),
             'pattern' => function (array $attributes) {
                 return $this->faker->randomElement(
                     $this->examplePatterns($attributes['reset_frequency'])
@@ -44,13 +44,13 @@ class SequenceRuleFactory extends Factory
     private function examplePatterns(string $resetFrequency): array
     {
         switch ($resetFrequency) {
-            case ResetFrequency::DAILY:
+            case ResetFrequency::Daily:
                 return ['{number}/{day}/{month}/{year}', '{month}/{day}/{year}/{number}', '{number}/{day_short}{month_short}{year_short}'];
 
-            case ResetFrequency::MONTHLY:
+            case ResetFrequency::Monthly:
                 return ['{number}/COMPANY/{month}/{year}', '{month_short}/{year}/{number}', '{number}/{month}-{year_short}'];
 
-            case ResetFrequency::YEARLY:
+            case ResetFrequency::Yearly:
                 return ['{number}/EXAMPLE/{year}', '{year}-{number}', '{number}/{year_short}'];
         }
 
@@ -64,7 +64,7 @@ class SequenceRuleFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'reset_frequency' => ResetFrequency::DAILY,
+                'reset_frequency' => ResetFrequency::Daily,
             ];
         });
     }
@@ -76,7 +76,7 @@ class SequenceRuleFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'reset_frequency' => ResetFrequency::MONTHLY,
+                'reset_frequency' => ResetFrequency::Monthly,
             ];
         });
     }
@@ -88,7 +88,7 @@ class SequenceRuleFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'reset_frequency' => ResetFrequency::YEARLY,
+                'reset_frequency' => ResetFrequency::Yearly,
             ];
         });
     }

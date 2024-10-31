@@ -6,7 +6,6 @@ namespace Guava\Sequence;
 
 use DateTimeInterface;
 use Guava\Sequence\Models\SequencePeriod;
-use Illuminate\Support\Stringable;
 
 class Sequence
 {
@@ -46,16 +45,6 @@ class Sequence
      */
     public function getNumber(bool $increment = false): string
     {
-        //        dd(str($this->getPattern())
-        //            ->pipe(fn(Stringable $str) => str(strtr($str->toString(), [
-        //            '{number}'      => $this->getOrdinalNumber(),
-        //            '{day}'         => $this->date->format('d'),
-        //            '{month}'       => $this->date->format('m'),
-        //            '{year}'        => $this->date->format('Y'),
-        //            '{day_short}'   => $this->date->format('j'),
-        //            '{month_short}' => $this->date->format('n'),
-        //            '{year_short}'  => $this->date->format('y'),
-        //        ]))));
         $result = strtr(
             str($this->getPattern())
                 ->replaceMatches(
@@ -71,11 +60,17 @@ class Sequence
             [
                 '{number}' => $this->getOrdinalNumber(),
                 '{day}' => $this->date->format('d'),
+                '{DD}' => $this->date->format('d'),
                 '{month}' => $this->date->format('m'),
+                '{MM}' => $this->date->format('m'),
                 '{year}' => $this->date->format('Y'),
+                '{YYYY}' => $this->date->format('Y'),
                 '{day_short}' => $this->date->format('j'),
+                '{D}' => $this->date->format('j'),
                 '{month_short}' => $this->date->format('n'),
+                '{M}' => $this->date->format('n'),
                 '{year_short}' => $this->date->format('y'),
+                '{YY}' => $this->date->format('y'),
             ]
         );
 

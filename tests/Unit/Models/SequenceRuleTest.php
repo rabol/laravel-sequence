@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Models;
 
-use NGT\Laravel\Sequence\Enums\ResetFrequency;
-use NGT\Laravel\Sequence\Models\SequenceRule;
+use Guava\Sequence\Enums\ResetFrequency;
+use Guava\Sequence\Models\SequenceRule;
 
 class SequenceRuleTest extends \Tests\TestCase
 {
@@ -44,17 +44,17 @@ class SequenceRuleTest extends \Tests\TestCase
 
     private function makeYearlySequenceRule(): SequenceRule
     {
-        return $this->makeSequenceRule(ResetFrequency::fromValue(ResetFrequency::YEARLY));
+        return $this->makeSequenceRule(ResetFrequency::Yearly);
     }
 
     private function makeMonthlySequenceRule(): SequenceRule
     {
-        return $this->makeSequenceRule(ResetFrequency::fromValue(ResetFrequency::MONTHLY));
+        return $this->makeSequenceRule(ResetFrequency::Monthly);
     }
 
     private function makeDailySequenceRule(): SequenceRule
     {
-        return $this->makeSequenceRule(ResetFrequency::fromValue(ResetFrequency::DAILY));
+        return $this->makeSequenceRule(ResetFrequency::Daily);
     }
 
     private function makeSequenceRule(ResetFrequency $resetFrequency): SequenceRule

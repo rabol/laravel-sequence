@@ -6,10 +6,10 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use InvalidArgumentException;
-use NGT\Laravel\Sequence\Enums\ResetFrequency;
-use NGT\Laravel\Sequence\Models\SequenceRule;
-use NGT\Laravel\Sequence\Sequence;
-use NGT\Laravel\Sequence\SequenceFactory;
+use Guava\Sequence\Enums\ResetFrequency;
+use Guava\Sequence\Models\SequenceRule;
+use Guava\Sequence\Sequence;
+use Guava\Sequence\SequenceFactory;
 
 class SequenceFactoryTest extends \Tests\TestCase
 {
@@ -18,7 +18,7 @@ class SequenceFactoryTest extends \Tests\TestCase
     /**
      * The sequence factory instance.
      *
-     * @var \NGT\Laravel\Sequence\SequenceFactory
+     * @var \Guava\Sequence\SequenceFactory
      */
     private $factory;
 
@@ -42,7 +42,7 @@ class SequenceFactoryTest extends \Tests\TestCase
         $rule = SequenceRule::create([
             'type' => 'test_type',
             'pattern' => 'test_pattern',
-            'reset_frequency' => ResetFrequency::YEARLY,
+            'reset_frequency' => ResetFrequency::Yearly,
         ]);
 
         $this->assertCount(0, $rule->periods()->get());
@@ -51,7 +51,7 @@ class SequenceFactoryTest extends \Tests\TestCase
 
         $this->assertCount(1, $rule->periods()->get());
 
-        /** @var \NGT\Laravel\Sequence\Models\SequencePeriod */
+        /** @var \Guava\Sequence\Models\SequencePeriod */
         $period = $rule->periods()->first();
 
         $this->assertSame('2021-06-06', $period->date);
@@ -63,7 +63,7 @@ class SequenceFactoryTest extends \Tests\TestCase
         $rule = SequenceRule::create([
             'type' => 'test_type',
             'pattern' => 'test_pattern',
-            'reset_frequency' => ResetFrequency::YEARLY,
+            'reset_frequency' => ResetFrequency::Yearly,
         ]);
         $rule->periods()->createMany([
             ['ordinal_number' => 10, 'date' => '2020-01-01'],
@@ -88,7 +88,7 @@ class SequenceFactoryTest extends \Tests\TestCase
         $rule = SequenceRule::create([
             'type' => 'test_type',
             'pattern' => 'test_pattern',
-            'reset_frequency' => ResetFrequency::MONTHLY,
+            'reset_frequency' => ResetFrequency::Monthly,
         ]);
         $rule->periods()->createMany([
             ['ordinal_number' => 20, 'date' => '2021-01-01'],
@@ -113,7 +113,7 @@ class SequenceFactoryTest extends \Tests\TestCase
         $rule = SequenceRule::create([
             'type' => 'test_type',
             'pattern' => 'test_pattern',
-            'reset_frequency' => ResetFrequency::DAILY,
+            'reset_frequency' => ResetFrequency::Daily,
         ]);
         $rule->periods()->createMany([
             ['ordinal_number' => 30, 'date' => '2021-01-01'],
@@ -138,7 +138,7 @@ class SequenceFactoryTest extends \Tests\TestCase
         $rule = SequenceRule::create([
             'type' => 'test_type',
             'pattern' => 'test_pattern',
-            'reset_frequency' => ResetFrequency::YEARLY,
+            'reset_frequency' => ResetFrequency::Yearly,
         ]);
 
         $sequence = $this->factory->create('test_type', $this->makeDate('2021-01-01'));

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Unit;
 
-use NGT\Laravel\Sequence\Models\SequencePeriod;
-use NGT\Laravel\Sequence\Sequence;
+use Guava\Sequence\Models\SequencePeriod;
+use Guava\Sequence\Sequence;
 
 class SequenceTest extends \Tests\TestCase
 {

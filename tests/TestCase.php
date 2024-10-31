@@ -6,7 +6,7 @@ namespace Tests;
 
 use DateTimeImmutable;
 use Exception;
-use NGT\Laravel\Sequence\SequenceServiceProvider;
+use Guava\Sequence\SequenceServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

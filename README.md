@@ -1,5 +1,7 @@
 # Laravel Sequence
 
+This is a fork for Laravel 11 of the original package [nextgen-tech/laravel-sequence](github.com/nextgen-tech/laravel-sequence) with a few minor tweaks / enhancements.
+
 Generate sequential numbers with pattern (e.g. for invoice numbers)
 
 ## Features
@@ -8,6 +10,7 @@ Generate sequential numbers with pattern (e.g. for invoice numbers)
 * Multiple pattern placeholders
 * Support for three most common reset frequencies
 * Automatically creating new ordinal number based on reset frequency
+* Laravel 11 support
 
 ## Installation
 
@@ -29,7 +32,7 @@ use Guava\Sequence\SequenceFactory;
 SequenceRule::create([
     'type'            => 'invoice',
     'pattern'         => '{number}/COMPANY/{year}',
-    'reset_frequency' => ResetFrequency::YEARLY,
+    'reset_frequency' => ResetFrequency::Yearly,
 ]);
 
 /**
@@ -62,21 +65,22 @@ $sequence->increment();
 
 Sequences supports three most commonly used reset frequencies. `\Guava\Sequence\Enums\ResetFrequency` class should be used when creating new sequence rule.
 
-* `ResetFrequency::YEARLY` - resets ordinal number at the beginning of new year
-* `ResetFrequency::MONTHLY` - resets ordinal number at the beginning of new month
-* `ResetFrequency::DAILY` - resets ordinal number at the beginning of new day
+* `ResetFrequency::Yearly` - resets ordinal number at the beginning of new year
+* `ResetFrequency::Monthly` - resets ordinal number at the beginning of new month
+* `ResetFrequency::Daily` - resets ordinal number at the beginning of new day
 
 ## Pattern Placeholders
 
-| Placeholder     | Description                               | Example |
-| --------------- | ----------------------------------------- | ------- |
-| `{number}`      | generated, ordinal number                 |         |
-| `{day}`         | day of passed date with leading zero      | 05      |
-| `{month}`       | month of passed date with leading zero    | 03      |
-| `{year}`        | full year of passed date                  | 2021    |
-| `{day_short}`   | day of passed date without leading zero   | 5       |
-| `{month_short}` | month of passed date without leading zero | 3       |
-| `{year_short}`  | short year of passed date                 | 21      |
+| Placeholder               | Description                                                                              | Example |
+|---------------------------|------------------------------------------------------------------------------------------|---------|
+| `{number}`                | generated, ordinal number                                                                | 4       |
+| `{number:<x>}`            | generated, ordinal number, padded to the given length. Replace `<x>` by the desired length | 0004    |
+| `{day}`, `{DD}`           | day of passed date with leading zero                                                     | 05      |
+| `{month}`, `{MM}`         | month of passed date with leading zero                                                   | 03      |
+| `{year}`, `{YYYY}`        | full year of passed date                                                                 | 2021    |
+| `{day_short}`, `{D}`      | day of passed date without leading zero                                                  | 5       |
+| `{month_short}`, `{M}`    | month of passed date without leading zero                                                | 3       |
+| `{year_short}`, `{YY}`    | short year of passed date                                                                | 21      |
 
 ## Credits
 This package is a fork of [nextgen-tech/laravel-sequence](https://github.com/nextgen-tech/laravel-sequence)
