@@ -22,7 +22,7 @@ class SequenceFactoryTest extends \Tests\TestCase
      */
     private $factory;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
